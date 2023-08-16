@@ -1,0 +1,14 @@
+---
+# handlers file for roles/sonarqube
+- name: Restart PostgreSQL
+  service:
+    name: postgresql
+    state: restarted
+
+- name: Update package cache
+  apt:
+    update_cache: yes
+
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
